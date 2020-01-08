@@ -1,0 +1,21 @@
+mode = "dev"
+
+[general]
+
+[general.SESSIONS]
+portserver = ":9091"
+
+[database]
+database = "db_colegio"
+user = "root"
+password = "anshigua"
+server = "174.138.66.144"
+port = 3306
+
+[oneSignal]
+appID = "4c2687a0-f3c4-468f-88aa-fc1b34ff61e0"
+
+[services]
+
+[services.OS_AddDevice]
+url = "https://onesignal.com/api/v1/players"

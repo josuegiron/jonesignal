@@ -4,8 +4,6 @@ import "testing"
 
 func Test_addNewDevice(t *testing.T) {
 
-	URL = "https://onesignal.com/api/v1/players"
-
 	onesignal := OSAddDeviceReq{
 		AppID:       "4c2687a0-f3c4-468f-88aa-fc1b34ff61e0",
 		DeviceModel: "iPhone 8,3",

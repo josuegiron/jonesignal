@@ -1,8 +1,5 @@
 package jonesignal
 
-// URL ...
-var URL string
-
 // OSAddDeviceReq ...
 type OSAddDeviceReq struct {
 	AppID       string `json:"app_id"`

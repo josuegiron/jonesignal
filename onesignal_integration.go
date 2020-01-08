@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	config "github.com/api-eliab/eliab-config-go"
 )
 
 func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
@@ -14,7 +16,7 @@ func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
 
 	jsonValue, _ := json.Marshal(jsonData)
 
-	response, err := http.Post(URL, "application/json", bytes.NewBuffer(jsonValue))
+	response, err := http.Post(config.Get.Services["OS_AddDevice"].URL, "application/json", bytes.NewBuffer(jsonValue))
 
 	if err != nil {
 		fmt.Printf("The HTTP request failed with error %s\n", err)
@@ -33,4 +35,6 @@ func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
 	return res, nil
 }
 
-func createNotification() {}
+func createNotification() {
+
+}
