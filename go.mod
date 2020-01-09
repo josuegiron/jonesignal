@@ -3,7 +3,7 @@ module github.com/josuegiron/jonesignal
 go 1.12
 
 require (
-	github.com/api-eliab/eliab-config-go v0.0.0-20200109082432-68910659a635
+	github.com/api-eliab/eliab-config-go v0.0.0-20200109101223-87c167a755e6
 	github.com/creack/pty v1.1.9 // indirect
 	github.com/go-sql-driver/mysql v1.5.0 // indirect
 	github.com/kr/pretty v0.2.0 // indirect
