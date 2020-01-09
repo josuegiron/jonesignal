@@ -10,7 +10,6 @@ require (
 	github.com/kr/pty v1.1.8 // indirect
 	github.com/rogpeppe/go-internal v1.5.1 // indirect
 	github.com/stretchr/objx v0.2.0 // indirect
-	go.mnc.gt/log v1.0.0
 	go.uber.org/atomic v1.5.1 // indirect
 	go.uber.org/multierr v1.4.0 // indirect
 	go.uber.org/zap v1.13.0 // indirect
