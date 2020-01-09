@@ -14,8 +14,12 @@ port = 3306
 
 [oneSignal]
 appID = "4c2687a0-f3c4-468f-88aa-fc1b34ff61e0"
+key = "NjY2NjI1MDgtYmNiYi00NGI2LThlODYtYTgyYzI1OTRjOGVi"
 
 [services]
 
 [services.OS_AddDevice]
 url = "https://onesignal.com/api/v1/players"
+
+[services.OS_SendMessage]
+url = "https://onesignal.com/api/v1/notifications"

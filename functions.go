@@ -17,3 +17,19 @@ func AddDevice(data OSAddDeviceReq) (string, error) {
 	return response.ID, nil
 
 }
+
+// SendNotification ...
+func SendNotification(data NotificationRequest) (string, error) {
+
+	response, err := sendNotification(data)
+	if err != nil {
+		return "", err
+	}
+
+	if response.ID == "" {
+		return "", errors.New("No pudo enviar el mensaje")
+	}
+
+	return response.ID, nil
+
+}

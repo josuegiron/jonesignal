@@ -22,14 +22,34 @@ type OSAddDeviceRes struct {
 	ID      string `json:"id"`
 }
 
-// Notification ...
-type Notification struct {
-	AppID    string `json:"app_id"`
-	Contents struct {
-		En string `json:"en"`
-	} `json:"contents"`
-	Data struct {
+// NotificationRequest ...
+type NotificationRequest struct {
+	AppID            string   `json:"app_id"`
+	IncludedSegments []string `json:"included_segments"`
+	IncludePlayerIds []string `json:"include_player_ids"`
+	Data             struct {
 		Foo string `json:"foo"`
 	} `json:"data"`
-	IncludedSegments []string `json:"included_segments"`
+	Headings  Headings `json:"headings"`
+	Contents  Contents `json:"contents"`
+	LargeIcon string   `json:"large_icon"`
+}
+
+// Headings doc ...
+type Headings struct {
+	En string `json:"en"`
+	Es string `json:"es"`
+}
+
+// Contents doc ...
+type Contents struct {
+	En string `json:"en"`
+	Es string `json:"es"`
+}
+
+// NotificationResponse doc ...
+type NotificationResponse struct {
+	ID         string      `json:"id"`
+	Recipients int         `json:"recipients"`
+	ExternalID interface{} `json:"external_id"`
 }
