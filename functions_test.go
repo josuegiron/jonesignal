@@ -1,10 +1,10 @@
 package jonesignal
 
 import (
+	"fmt"
 	"testing"
 
 	config "github.com/api-eliab/eliab-config-go"
-	"go.mnc.gt/log"
 )
 
 func TestSendNotification(t *testing.T) {
@@ -22,7 +22,7 @@ func TestSendNotification(t *testing.T) {
 		return
 	}
 
-	log.Info(messageID)
+	fmt.Printf(messageID)
 
 	// type args struct {
 	// 	data NotificationRequest
