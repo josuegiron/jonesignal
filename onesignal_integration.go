@@ -8,7 +8,6 @@ import (
 	"net/http"
 
 	config "github.com/api-eliab/eliab-config-go"
-	"go.mnc.gt/log"
 )
 
 func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
@@ -20,7 +19,7 @@ func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
 	response, err := http.Post(config.Get.Services["OS_AddDevice"].URL, "application/json", bytes.NewBuffer(jsonValue))
 
 	if err != nil {
-		log.Errorf("The HTTP request failed with error %s\n", err)
+		fmt.Printf("The HTTP request failed with error %s\n", err)
 		return res, err
 	}
 
@@ -55,7 +54,7 @@ func sendNotification(jsonData NotificationRequest) (NotificationResponse, error
 	response, err := c.Do(req)
 
 	if err != nil {
-		log.Errorf("The HTTP request failed with error %s\n", err)
+		fmt.Printf("The HTTP request failed with error %s\n", err)
 		return res, err
 	}
 
@@ -64,7 +63,7 @@ func sendNotification(jsonData NotificationRequest) (NotificationResponse, error
 		return res, err
 	}
 
-	log.Info(string(data))
+	fmt.Print(string(data))
 
 	if err := json.Unmarshal(data, &res); err != nil {
 		return res, err
