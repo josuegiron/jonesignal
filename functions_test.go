@@ -1,28 +1,25 @@
 package jonesignal
 
 import (
-	"fmt"
 	"testing"
-
-	config "github.com/api-eliab/eliab-config-go"
 )
 
 func TestSendNotification(t *testing.T) {
 
-	notification := NotificationRequest{
-		AppID:            config.Get.OneSignal.AppID,
-		IncludePlayerIds: []string{"6646ca8d-ca15-4c25-a685-6ddb3bf977a0"},
-		Headings:         Headings{En: "Hola", Es: "Hola"},
-		Contents:         Contents{En: "como estas", Es: "test"},
-	}
+	// notification := NotificationRequest{
+	// 	AppID:            config.Get.OneSignal.AppID,
+	// 	IncludePlayerIds: []string{"6646ca8d-ca15-4c25-a685-6ddb3bf977a0"},
+	// 	Headings:         Headings{En: "Hola", Es: "Hola"},
+	// 	Contents:         Contents{En: "como estas", Es: "test"},
+	// }
 
-	messageID, err := SendNotification(notification)
-	if err != nil {
-		t.Error(err)
-		return
-	}
+	// messageID, err := SendNotification(notification)
+	// if err != nil {
+	// 	t.Error(err)
+	// 	return
+	// }
 
-	fmt.Printf(messageID)
+	// fmt.Printf(messageID)
 
 	// type args struct {
 	// 	data NotificationRequest

@@ -19,9 +19,9 @@ func AddDevice(data OSAddDeviceReq) (string, error) {
 }
 
 // SendNotification ...
-func SendNotification(data NotificationRequest) (string, error) {
+func SendNotification(data NotificationRequest, oneSignalKey string) (string, error) {
 
-	response, err := sendNotification(data)
+	response, err := sendNotification(data, oneSignalKey)
 	if err != nil {
 		return "", err
 	}

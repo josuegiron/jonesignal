@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-
-	config "github.com/api-eliab/eliab-config-go"
 )
 
 func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
@@ -16,7 +14,7 @@ func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
 
 	jsonValue, _ := json.Marshal(jsonData)
 
-	response, err := http.Post(config.Get.Services["OS_AddDevice"].URL, "application/json", bytes.NewBuffer(jsonValue))
+	response, err := http.Post(PlayersService, "application/json", bytes.NewBuffer(jsonValue))
 
 	if err != nil {
 		fmt.Printf("The HTTP request failed with error %s\n", err)
@@ -35,19 +33,19 @@ func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
 	return res, nil
 }
 
-func sendNotification(jsonData NotificationRequest) (NotificationResponse, error) {
+func sendNotification(jsonData NotificationRequest, oneSignalKey string) (NotificationResponse, error) {
 
 	var res NotificationResponse
 
 	jsonValue, _ := json.Marshal(jsonData)
 
-	req, err := http.NewRequest("POST", config.Get.Services["OS_SendMessage"].URL, bytes.NewBuffer(jsonValue))
+	req, err := http.NewRequest("POST", NotificationsService, bytes.NewBuffer(jsonValue))
 	if err != nil {
 		return res, err
 	}
 
 	req.Header.Set("Content-Type", "application/json")
-	req.Header.Set("Authorization", fmt.Sprintf("Basic %v", config.Get.OneSignal.Key))
+	req.Header.Set("Authorization", fmt.Sprintf("Basic %v", oneSignalKey))
 
 	var c = &http.Client{}
 
