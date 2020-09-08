@@ -1,0 +1,4 @@
+github.com/jgolang/log v1.0.0 h1:bhu8NJuzl9F5Jqze336Jp5eIAltGKP8sSnMVjYDu4NM=
+github.com/jgolang/log v1.0.0/go.mod h1:768opTKNrYsjcsdz/aiFW4rRMtv7NdSK+l0mgVq1tzs=
+github.com/jgolang/log v1.1.4 h1:hXsCZh3GxyqNk9kmEL/rP/k5JhQdES0Zc/Z6c+86Mws=
+github.com/jgolang/log v1.1.4/go.mod h1:768opTKNrYsjcsdz/aiFW4rRMtv7NdSK+l0mgVq1tzs=

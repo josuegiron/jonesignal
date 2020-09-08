@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/jgolang/log"
 )
 
 func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
@@ -17,7 +19,7 @@ func addNewDevice(jsonData OSAddDeviceReq) (OSAddDeviceRes, error) {
 	response, err := http.Post(PlayersService, "application/json", bytes.NewBuffer(jsonValue))
 
 	if err != nil {
-		fmt.Printf("The HTTP request failed with error %s\n", err)
+		log.Error("The HTTP request failed with error %s\n", err)
 		return res, err
 	}
 
@@ -52,7 +54,7 @@ func sendNotification(jsonData NotificationRequest, oneSignalKey string) (Notifi
 	response, err := c.Do(req)
 
 	if err != nil {
-		fmt.Printf("The HTTP request failed with error %s\n", err)
+		log.Error("The HTTP request failed with error %s\n", err)
 		return res, err
 	}
 
@@ -61,7 +63,7 @@ func sendNotification(jsonData NotificationRequest, oneSignalKey string) (Notifi
 		return res, err
 	}
 
-	fmt.Print(string(data))
+	log.Info(string(data))
 
 	if err := json.Unmarshal(data, &res); err != nil {
 		return res, err
